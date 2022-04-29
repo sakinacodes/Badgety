@@ -147,7 +147,9 @@ var UIController = (function () {
 			// Insert the html into the DOM
 			document.querySelector(element).insertAdjacentHTML('beforeend', newhtml)
 		},
-
+		deleteListItem: function(selectorid){
+			document.getElementById(selectorid).parentNode.removeChild(document.getElementById(selectorid))
+		},
 		clearFields: function () {
 			var fields, fieldsArray
 
@@ -229,6 +231,7 @@ var controller = (function (BudgeCtrl, UICtrl) {
 			type = splitID[0]
 			ID = parseInt(splitID[1])
 			BudgeCtrl.deleteItem(type, ID)
+			UICtrl.deleteListItem(itemID)
 		}
 	}
 
